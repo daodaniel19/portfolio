@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Scientist Portfolio</title>
+    <title>Portfolio Data Scientist - Alex</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,22 +19,23 @@
             <span>Portfolio</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About us</a></li>
+            <li><a href="#home" class="active">Accueil</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#blogs">Blogs</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#portfolio">Projets</a></li>
+            <li><a href="#blogs">Blog</a></li>
+            <li><a href="#certifications">Certifs</a></li>
+            <li><a href="#about">À propos</a></li>
         </ul>
-        <button class="btn-contact">Contact</button>
+        <button class="btn-contact" onclick="location.href='#contact'">Contact</button>
     </nav>
 
     <main id="home">
         <div class="hero">
             <div class="hero-content">
-                <span class="greeting">HEY! I'm <span class="name">Alex</span>,</span>
+                <span class="greeting">SALUT ! Je suis <span class="name">Alex</span>,</span>
                 <h1>Data <span class="highlight">Scientist</span></h1>
-                <p class="description">Turning complex data into actionable insights with the power of Machine Learning
-                    and AI. Specializing in Deep Learning and Predictive Analytics.</p>
+                <p class="description">Je transforme des données complexes en insights actionnables grâce à la puissance
+                    du Machine Learning et de l'IA. Spécialiste en Deep Learning et Analyse Prédictive.</p>
 
                 <div class="social-icons">
                     <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
@@ -43,8 +44,8 @@
                 </div>
 
                 <div class="hero-actions">
-                    <button class="btn-hire">Download CV</button>
-                    <div class="play-button" title="Watch Intro">
+                    <button class="btn-hire">Télécharger CV</button>
+                    <div class="play-button" title="Voir l'Intro">
                         <div class="play-icon"><i class="fas fa-play"></i></div>
                     </div>
                 </div>
@@ -54,7 +55,7 @@
                 <div class="circle-bg"></div>
                 <img src="profile.png" alt="Data Scientist" class="profile-img">
 
-                <!-- Floating Elements -->
+                <!-- Éléments flottants -->
                 <div class="floating-card testimonial">
                     <img src="https://i.pravatar.cc/40?u=1" alt="Client">
                     <div class="card-info">
@@ -71,10 +72,10 @@
                         <img src="https://i.pravatar.cc/30?u=c" alt="c3">
                         <span class="more-clients">+15</span>
                     </div>
-                    <span>Data Projects</span>
+                    <span>Projets Data</span>
                 </div>
 
-                <!-- Abstract Shapes -->
+                <!-- Formes Abstraites -->
                 <div class="shape shape-1"></div>
                 <div class="shape shape-2"></div>
                 <div class="shape shape-3"></div>
@@ -83,32 +84,35 @@
 
         <section id="services" class="section">
             <div class="section-header">
-                <h2>What I <span class="accent">Offer</span></h2>
-                <p>Specialized data solutions for your business needs.</p>
+                <h2>Ce que je <span class="accent">propose</span></h2>
+                <p>Des solutions de données spécialisées pour vos besoins business.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <i class="fas fa-brain"></i>
                     <h3>Machine Learning</h3>
-                    <p>Designing and implementing custom ML models for predictive tasks and classification.</p>
+                    <p>Conception et implémentation de modèles ML personnalisés pour la prédiction et la classification.
+                    </p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-chart-pie"></i>
-                    <h3>Data Visualization</h3>
-                    <p>Creating interactive dashboards and compelling visual stories from complex datasets.</p>
+                    <h3>Visualisation de Données</h3>
+                    <p>Création de tableaux de bord interactifs et narration visuelle à partir de jeux de données
+                        complexes.</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-microchip"></i>
                     <h3>Deep Learning</h3>
-                    <p>Leveraging Neural Networks for Computer Vision and Natural Language Processing.</p>
+                    <p>Utilisation de réseaux de neurones pour la Vision par Ordinateur et le Traitement du Langage
+                        Naturel (NLP).</p>
                 </div>
             </div>
         </section>
 
         <section id="portfolio" class="section">
             <div class="section-header">
-                <h2>Featured <span class="accent">Projects</span></h2>
-                <p>A selection of my recent data science work.</p>
+                <h2>Projets <span class="accent">Phares</span></h2>
+                <p>Une sélection de mes travaux récents en science des données.</p>
             </div>
             <div class="portfolio-grid">
                 <div class="project-card">
@@ -116,9 +120,9 @@
                         <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #4F46E5;"></i>
                     </div>
                     <div class="project-info">
-                        <h3>Customer Churn Prediction</h3>
-                        <p>ML model to predict customer attrition with 92% accuracy.</p>
-                        <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <h3>Prédiction de l'Attrition Client</h3>
+                        <p>Modèle ML pour prédire le départ des clients avec une précision de 92%.</p>
+                        <a href="#" class="project-link">Voir le Projet <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -126,109 +130,112 @@
                         <i class="fas fa-language" style="font-size: 3rem; color: #F59E0B;"></i>
                     </div>
                     <div class="project-info">
-                        <h3>NLP Sentiment Analysis</h3>
-                        <p>Analyzing social media trends using BERT-based models.</p>
-                        <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <h3>Analyse de Sentiment NLP</h3>
+                        <p>Analyse des tendances sur les réseaux sociaux à l'aide de modèles basés sur BERT.</p>
+                        <a href="#" class="project-link">Voir le Projet <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </div>
-            <section id="blogs" class="section">
-                <div class="section-header">
-                    <h2>Latest <span class="accent">Insights</span></h2>
-                    <p>Writing about AI, Data Engineering, and Machine Learning.</p>
-                </div>
-                <div class="blogs-grid">
-                    <article class="blog-card">
-                        <div class="blog-date">Jan 15, 2026</div>
-                        <h3>The Future of LLMs in Enterprise</h3>
-                        <p>Exploring how Large Language Models are transforming business intelligence...</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                    <article class="blog-card">
-                        <div class="blog-date">Dec 20, 2025</div>
-                        <h3>Optimizing PyTorch Models</h3>
-                        <p>A deep dive into model quantization and pruning for edge devices...</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                    <article class="blog-card">
-                        <div class="blog-date">Nov 05, 2025</div>
-                        <h3>Data Ethics in AI</h3>
-                        <p>Why responsible AI is the foundation of future technology...</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                </div>
-            </section>
+        </section>
 
-            <section id="certifications" class="section">
-                <div class="section-header">
-                    <h2>Professional <span class="accent">Certifications</span></h2>
-                    <p>Validation of my technical expertise from leading institutions.</p>
-                </div>
-                <div class="cert-list">
-                    <div class="cert-item">
-                        <div class="cert-icon"><i class="fab fa-google"></i></div>
-                        <div class="cert-info">
-                            <h3>Google Professional Data Engineer</h3>
-                            <span>Google Cloud • 2025</span>
-                        </div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-icon"><i class="fab fa-aws"></i></div>
-                        <div class="cert-info">
-                            <h3>AWS Certified Machine Learning</h3>
-                            <span>Amazon Web Services • 2024</span>
-                        </div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <div class="cert-info">
-                            <h3>Deep Learning Specialization</h3>
-                            <span>Coursera (DeepLearning.AI) • 2023</span>
-                        </div>
+        <section id="blogs" class="section">
+            <div class="section-header">
+                <h2>Derniers <span class="accent">Articles</span></h2>
+                <p>Mes écrits sur l'IA, l'ingénierie des données et le Machine Learning.</p>
+            </div>
+            <div class="blogs-grid">
+                <article class="blog-card">
+                    <div class="blog-date">15 Janv, 2026</div>
+                    <h3>L'avenir des LLM en entreprise</h3>
+                    <p>Comment les grands modèles de langage transforment l'intelligence d'affaires...</p>
+                    <a href="#" class="blog-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-date">20 Déc, 2025</div>
+                    <h3>Optimisation des modèles PyTorch</h3>
+                    <p>Plongée au cœur de la quantification et de l'élagage des modèles...</p>
+                    <a href="#" class="blog-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-date">05 Nov, 2025</div>
+                    <h3>Éthique des données en IA</h3>
+                    <p>Pourquoi une IA responsable est le fondement des technologies futures...</p>
+                    <a href="#" class="blog-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                </article>
+            </div>
+        </section>
+
+        <section id="certifications" class="section">
+            <div class="section-header">
+                <h2>Certifications <span class="accent">Professionnelles</span></h2>
+                <p>Validation de mon expertise technique par des institutions de premier plan.</p>
+            </div>
+            <div class="cert-list">
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fab fa-google"></i></div>
+                    <div class="cert-info">
+                        <h3>Google Professional Data Engineer</h3>
+                        <span>Google Cloud • 2025</span>
                     </div>
                 </div>
-            </section>
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fab fa-aws"></i></div>
+                    <div class="cert-info">
+                        <h3>AWS Certified Machine Learning</h3>
+                        <span>Amazon Web Services • 2024</span>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="cert-info">
+                        <h3>Deep Learning Specialization</h3>
+                        <span>Coursera (DeepLearning.AI) • 2023</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section id="about" class="section">
-                <div class="about-container">
-                    <div class="about-text">
-                        <h2>About <span class="accent">Me</span></h2>
-                        <p>I am a passionate Data Scientist with over 5 years of experience in translating complex data
-                            into actionable business strategies. My expertise lies in building robust machine learning
-                            models and creating data-driven narratives that empower decision-makers.</p>
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-number">50+</span>
-                                <span class="stat-label">Projects Completed</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">10+</span>
-                                <span class="stat-label">Publications</span>
-                            </div>
+        <section id="about" class="section">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>À mon <span class="accent">sujet</span></h2>
+                    <p>Je suis un Data Scientist passionné avec plus de 5 ans d'expérience dans la traduction de données
+                        complexes en stratégies d'affaires actionnables. Mon expertise réside dans la construction de
+                        modèles de machine learning robustes et la création de récits basés sur les données.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Projets Terminés</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Publications</span>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="contact" class="section contact-section">
-                <div class="contact-card">
-                    <h2>Let's work <span class="accent">together</span></h2>
-                    <p>Have a data project in mind? Let's discuss how I can help.</p>
-                    <form class="contact-form">
-                        <input type="email" placeholder="Your Email Address">
-                        <button type="submit">Get Started</button>
-                    </form>
-                </div>
-            </section>
+        <section id="contact" class="section contact-section">
+            <div class="contact-card">
+                <h2>Travaillons <span class="accent">ensemble</span></h2>
+                <p>Vous avez un projet de données en tête ? Discutons-en dès maintenant.</p>
+                <form class="contact-form" id="contactForm">
+                    <input type="email" name="email" id="email" placeholder="Votre adresse email" required>
+                    <button type="submit">C'est parti</button>
+                </form>
+                <div id="formStatus" style="margin-top: 1rem; font-weight: 600;"></div>
+            </div>
+        </section>
 
-            <footer class="footer">
-                <p>&copy; 2026 DataPortfolio. All rights reserved.</p>
-                <div class="footer-socials">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </footer>
+        <footer class="footer">
+            <p>&copy; 2026 DataPortfolio. Tous droits réservés.</p>
+            <div class="footer-socials">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
     </main>
 
     <script src="main.js"></script>
