@@ -606,6 +606,46 @@ h1 {
     background: #4338CA;
 }
 
+.infos-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.lien-contact {
+    color: var(--texte-sombre);
+    text-decoration: none;
+    font-size: 0.9rem;
+    /* Liens plus discrets */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background: white;
+    border: 1px solid #e7e7e4;
+    transition: var(--transition);
+}
+
+.lien-contact:hover {
+    background: var(--couleur-primaire);
+    color: white;
+    border-color: var(--couleur-primaire);
+    transform: translateY(-1px);
+}
+
+.lien-contact i {
+    color: var(--couleur-primaire);
+    font-size: 0.9rem;
+}
+
+.lien-contact:hover i {
+    color: white;
+}
+
 /* Pied de page */
 .pied-de-page {
     padding: 4rem 8% 2rem;

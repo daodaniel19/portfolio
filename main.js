@@ -81,43 +81,7 @@ if (window.location.pathname.includes('index.html') || window.location.pathname 
     window.addEventListener('scroll', mettreAJourNavigation);
 }
 
-// Gestion du Formulaire de Contact
-const formulaireContact = document.getElementById('formulaireContact');
-if (formulaireContact) {
-    formulaireContact.addEventListener('submit', async (evenement) => {
-        evenement.preventDefault();
-        const statut = document.getElementById('statutFormulaire');
-        const email = document.getElementById('entree-email').value;
-        const bouton = formulaireContact.querySelector('button');
-
-        statut.textContent = "Envoi en cours...";
-        statut.style.color = "var(--couleur-primaire)";
-        bouton.disabled = true;
-
-        try {
-            const reponse = await fetch('http://localhost:3000/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email: email })
-            });
-
-            if (reponse.ok) {
-                statut.textContent = "Message envoyé avec succès ! Merci.";
-                statut.style.color = "green";
-                formulaireContact.reset();
-            } else {
-                throw new Error('Erreur');
-            }
-        } catch (erreur) {
-            statut.textContent = "Simulation d'envoi réussie ! (Serveur hors ligne)";
-            statut.style.color = "#F59E0B";
-        } finally {
-            bouton.disabled = false;
-        }
-    });
-}
+// Gestion du Formulaire de Contact supprimée car le formulaire a été remplacé par des liens directs.
 
 // Gestion de la Fenêtre Surgissante (Popup) des Certifications
 const fenetreModal = document.getElementById('fenetreCertif');
@@ -130,10 +94,19 @@ if (fenetreModal && elementsCertif && boutonFermer) {
             const titre = element.getAttribute('data-titre');
             const description = element.getAttribute('data-description');
             const image = element.getAttribute('data-image');
+            const lien = element.getAttribute('data-lien');
 
             document.getElementById('titreModal').textContent = titre;
             document.getElementById('descriptionModal').textContent = description;
             document.getElementById('imageModal').src = image;
+
+            const boutonLien = document.getElementById('lienModal');
+            if (lien) {
+                boutonLien.href = lien;
+                boutonLien.style.display = 'inline-block';
+            } else {
+                boutonLien.style.display = 'none';
+            }
 
             fenetreModal.style.display = 'block';
             setTimeout(() => {
