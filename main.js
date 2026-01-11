@@ -136,11 +136,38 @@ function initialiserModalCertifications() {
     });
 }
 
+/**
+ * Initialise le menu mobile (hamburger).
+ */
+function initialiserMenuMobile() {
+    const boutonMobile = document.getElementById('mobile-menu');
+    const liensNavigation = document.querySelector('.liens-navigation');
+    const liens = document.querySelectorAll('.liens-navigation a');
+
+    if (!boutonMobile || !liensNavigation) return;
+
+    boutonMobile.addEventListener('click', () => {
+        boutonMobile.classList.toggle('actif');
+        liensNavigation.classList.toggle('actif');
+        // Empêcher le défilement du corps quand le menu est ouvert
+        document.body.style.overflow = liensNavigation.classList.contains('actif') ? 'hidden' : 'auto';
+    });
+
+    liens.forEach(lien => {
+        lien.addEventListener('click', () => {
+            boutonMobile.classList.remove('actif');
+            liensNavigation.classList.remove('actif');
+            document.body.style.overflow = 'auto';
+        });
+    });
+}
+
 // --- Exécution après chargement du DOM ---
 
 document.addEventListener('DOMContentLoaded', () => {
     initialiserDefilementFluide();
     initialiserModalCertifications();
+    initialiserMenuMobile();
 
     // Activer l'écouteur de défilement immédiatement si on est sur la page principale
     if (window.location.pathname.includes('index.html') ||

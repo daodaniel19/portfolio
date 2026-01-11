@@ -113,6 +113,29 @@ body {
     box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.4);
 }
 
+.mobile-only {
+    display: none;
+}
+
+/* Menu Mobile */
+.menu-mobile {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-mobile .barre {
+    height: 3px;
+    width: 100%;
+    background-color: var(--texte-principal);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
 /* Section Héros */
 .heros {
     display: flex;
@@ -738,17 +761,59 @@ h1 {
 }
 
 @media (max-width: 768px) {
+    .menu-mobile {
+        display: flex;
+    }
+
+    .menu-mobile.actif .barre:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-mobile.actif .barre:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-mobile.actif .barre:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
     .barre-navigation {
-        flex-direction: column;
         padding: 1rem 5%;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .liens-navigation {
-        margin-right: 0;
-        margin-bottom: 1rem;
-        gap: 1rem;
-        flex-wrap: wrap;
+        position: fixed;
+        left: -100%;
+        top: 0;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         justify-content: center;
+        gap: 2rem;
+        z-index: 999;
+    }
+
+    .liens-navigation.actif {
+        left: 0;
+    }
+
+    .bouton-contact {
+        display: none;
+    }
+
+    .heros {
+        padding-top: 7rem;
+        min-height: auto;
+    }
+
+    .contenu-heros {
+        padding-top: 2rem;
     }
 
     .section {
@@ -764,6 +829,23 @@ h1 {
     .pied-de-page {
         justify-content: center;
         text-align: center;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .bouton-contact-mobile {
+        background: var(--gradient-accent);
+        color: white;
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 1rem;
+        box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3);
     }
 }
 
