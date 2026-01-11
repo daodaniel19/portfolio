@@ -68,10 +68,12 @@ function mettreAJourNavigation() {
 
     // Style de la barre au défilement
     if (window.scrollY > 50) {
-        barreNav.style.padding = '1rem 8%';
-        barreNav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.05)';
+        barreNav.style.padding = '1rem 10%';
+        barreNav.style.background = 'rgba(255, 255, 255, 0.95)';
+        barreNav.style.boxShadow = 'var(--ombre-douce)';
     } else {
-        barreNav.style.padding = '2rem 8%';
+        barreNav.style.padding = '1.5rem 10%';
+        barreNav.style.background = 'rgba(255, 255, 255, 0.8)';
         barreNav.style.boxShadow = 'none';
     }
 }

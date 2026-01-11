@@ -14,16 +14,17 @@
 
 <body>
     <nav class="barre-navigation">
+        <div class="logo">Daniel<span class="accent">.</span></div>
         <ul class="liens-navigation">
             <li><a href="#accueil" class="actif">Accueil</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#competences">Compétences</a></li>
             <li><a href="#portfolio">Projets</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="#certifications">Certifs</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#a-propos">À propos</a></li>
         </ul>
-        <button class="bouton-contact" onclick="location.href='#contact'">Contact</button>
+        <button class="bouton-contact" onclick="location.href='#contact'">Parlons-en !</button>
     </nav>
 
     <main id="accueil">
@@ -88,31 +89,29 @@
         <section id="portfolio" class="section">
             <div class="en-tete-section">
                 <h2>Projets <span class="accent">Phares</span></h2>
-                <p>Une sélection de mes travaux récents en science des données.</p>
+                <p>Une sélection de mes travaux récents académiques en science des données.</p>
             </div>
             <div class="grille-portfolio">
                 <div class="carte-projet">
                     <div class="image-projet">
-                        <img src="project_churn.png" alt="Prédiction Attrition"
+                        <img src="project_churn.png" alt="Tableau de bord Power BI"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="info-projet">
-                        <h3>Prédiction de l'Attrition Client</h3>
-                        <p>Modèle d'apprentissage automatique pour prédire le départ des clients avec une précision de
-                            92%. Utilisation de
-                            XGBoost et SHAP pour l'explicabilité.</p>
+                        <h3>Tableau de bord Power BI</h3>
+                        <p>Tableau de bord Power BI pour visualiser les données des clients avec une précision de
+                            92%. Utilisation de Power BI pour l'explicabilité.</p>
                         <a href="#" class="lien-projet">Voir le Projet <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
                 <div class="carte-projet">
                     <div class="image-projet">
-                        <img src="project_nlp.png" alt="Analyse Sentiment"
+                        <img src="project_nlp.png" alt="Analyse de Sentiment TALN"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="info-projet">
-                        <h3>Analyse de Sentiment TALN</h3>
-                        <p>Analyse des tendances sur les réseaux sociaux à l'aide de modèles basés sur BERT et
-                            déploiement via FastAPI.</p>
+                        <h3>Deep Learning pour la reconnaissance visuelle</h3>
+                        <p>Reconnaissance visuelle des images de produits à l'aide de modèles convolutifs.</p>
                         <a href="#" class="lien-projet">Voir le Projet <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
@@ -127,9 +126,9 @@
             <div class="conteneur-competences">
                 <div class="etiquette-competence">Python</div>
                 <div class="etiquette-competence">SQL</div>
-                <div class="etiquette-competence">TensorFlow</div>
-                <div class="etiquette-competence">PyTorch</div>
-                <div class="etiquette-competence">Scikit-Learn</div>
+                <div class="etiquette-competence">Kobo Collect</div>
+                <div class="etiquette-competence">Linux</div>
+                <div class="etiquette-competence">Power BI</div>
                 <div class="etiquette-competence">Pandas</div>
                 <div class="etiquette-competence">Spark</div>
                 <div class="etiquette-competence">Docker</div>
@@ -141,33 +140,45 @@
                 <p>Validation de mon expertise technique par des institutions de premier plan.</p>
             </div>
             <div class="liste-certifs">
-                <div class="element-certif" data-titre="Ingénieur de Données Professionnel Google"
-                    data-description="Certification avancée démontrant la capacité à concevoir et construire des systèmes de traitement de données sur Google Cloud Platform."
+                <div class="element-certif" data-titre="Google Cybersecurity"
+                    data-description="Certification sur l'identification des risques, menaces et vulnérabilités courants, ainsi que les techniques permettant de les atténuer. Protéger les réseaux, les appareils, les personnes et les données contre les accès non autorisés et les cyberattaques à l'aide d'outils de gestion des informations et des événements de sécurité (SIEM). Acquérir une expérience pratique avec Python, Linux et SQL."
                     data-image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
-                    data-lien="https://www.coursera.org/account/accomplishments/specialization/certificate/2G6E9Z68MIG0">
+                    data-lien="https://coursera.org/share/e45e71ded56dd78f386b518044003072">
                     <div class="icone-certif"><i class="fab fa-google"></i></div>
                     <div class="info-certif">
-                        <h3>Ingénieur de Données Professionnel Google</h3>
-                        <span>Google Cloud • 2025</span>
+                        <h3>Google Cybersécurité Certificat Professionnel</h3>
+                        <span>Google Coursera • 2025</span>
                     </div>
                 </div>
-                <div class="element-certif" data-titre="Certifié AWS en Apprentissage Automatique"
-                    data-description="Validation des compétences pour créer, former, ajuster et déployer des modèles de machine learning sur le cloud AWS."
-                    data-image="https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=800">
+
+                <div class="element-certif" data-titre="Google Data Analytics"
+                    data-description="Certification Compétences analytiques clés (nettoyage, analyse et visualisation des données) et les outils (feuilles de calcul, SQL, programmation R, Tableau). Compréhension de comment nettoyer et organiser les données pour l'analyse, et effectuer des analyses et des calculs à l'aide de feuilles de calcul, de SQL et de la programmation R. Visualiser et présenter les résultats des données dans des tableaux de bord, des présentations et des plates-formes de visualisation couramment utilisées."
+                    data-image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
+                    data-lien="https://coursera.org/share/0591b7b064abece090460712a69f7e4e">
+                    <div class="icone-certif"><i class="fab fa-google"></i></div>
+                    <div class="info-certif">
+                        <h3>Google Data Analytics</h3>
+                        <span>Google Coursera • 2025</span>
+                    </div>
+                </div>
+                <div class="element-certif" data-titre="Google IT Support"
+                    data-description="Certification avancée démontrant la capacité à effectuer des tâches quotidiennes d'assistance informatique, y compris l'assemblage d'ordinateurs, la mise en réseau sans fil, l'installation de programmes et le service à la clientèle. A fournir une assistance à la clientèle de bout en bout, depuis l'identification des problèmes jusqu'au dépannage et au débogage. Utilisation de Linux, les systèmes de noms de domaine, l'interface de ligne de commande et le code binaire."
+                    data-image="https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=800"
+                    data-lien="https://coursera.org/share/2302be614c2959f18e77a7eb171dffcd">
                     <div class="icone-certif"><i class="fab fa-aws"></i></div>
                     <div class="info-certif">
-                        <h3>Certifié AWS en Apprentissage Automatique</h3>
-                        <span>Amazon Web Services • 2024</span>
+                        <h3>Certifié Google en Assistance Informatique</h3>
+                        <span>Google Coursera • 2025</span>
                     </div>
                 </div>
-                <div class="element-certif" data-titre="Spécialisation en Apprentissage Profond"
+                <div class="element-certif" data-titre="Python for Data Science, AI & Development"
                     data-description="Série de cours couvrant les fondements de l'apprentissage profond, de la construction de réseaux de neurones à l'implémentation de modèles complexes."
                     data-image="https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=800"
                     data-lien="https://www.coursera.org/specializations/deep-learning">
                     <div class="icone-certif"><i class="fas fa-graduation-cap"></i></div>
                     <div class="info-certif">
-                        <h3>Spécialisation en Apprentissage Profond</h3>
-                        <span>Coursera (DeepLearning.AI) • 2023</span>
+                        <h3>Python pour la science des données, l'IA et le développement</h3>
+                        <span>Coursera (IBM) • 2025</span>
                     </div>
                 </div>
             </div>
@@ -177,10 +188,10 @@
             <div class="conteneur-a-propos">
                 <div class="texte-a-propos">
                     <h2>À mon <span class="accent">sujet</span></h2>
-                    <p>Je suis un Scientifique des Données passionné en quête d'un challenge pour appliquer mes
-                        compétences dans la transformation des données complexes en stratégies d'affaires actionnables.
-                        Mon expertise réside dans la construction de modèles d'apprentissage automatique robustes et la
-                        création de récits basés sur les données.</p>
+                    <p>Je suis un Scientifique des Données passionné par la transformation de données brutes en insights
+                        stratégiques. Fort de mes certifications chez Google et IBM, je combine rigueur analytique et
+                        créativité technologique pour résoudre des problèmes complexes et optimiser les prises de
+                        décision en entreprise.</p>
                 </div>
             </div>
         </section>
