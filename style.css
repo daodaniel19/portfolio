@@ -464,62 +464,6 @@ h1 {
     gap: 15px;
 }
 
-/* Section Blogs */
-.grille-blogs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.carte-blog {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 25px;
-    border: 1px solid #F3F4F6;
-    transition: var(--transition);
-}
-
-.carte-blog:hover {
-    border-color: var(--couleur-primaire);
-    box-shadow: 0 10px 30px rgba(79, 70, 229, 0.05);
-}
-
-.date-blog {
-    font-size: 0.85rem;
-    color: var(--couleur-primaire);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.carte-blog h3 {
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-    line-height: 1.3;
-}
-
-.carte-blog p {
-    color: var(--texte-gris);
-    margin-bottom: 1.5rem;
-}
-
-.lien-blog {
-    color: var(--texte-sombre);
-    text-decoration: none;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: var(--transition);
-}
-
-.lien-blog:hover {
-    gap: 12px;
-    color: var(--couleur-primaire);
-}
-
 /* Certifications */
 .liste-certifs {
     max-width: 900px;
