@@ -1,102 +1,101 @@
-// Correction du bug de défilement et ajout de la gestion du formulaire de contact
+// Correction du défilement et gestion du formulaire de contact en Français
 
 // Gestion du défilement fluide pour les liens de navigation
-document.querySelectorAll('.nav-links a, .btn-contact').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
+document.querySelectorAll('.liens-navigation a, .bouton-contact').forEach(ancre => {
+    ancre.addEventListener('click', function (evenement) {
+        const lien = this.getAttribute('href');
 
-        // Si c'est un lien interne (ancre sur la même page)
-        if (href && href.includes('#') && (href.startsWith('#') || href.startsWith('index.html#'))) {
-            const targetId = href.split('#')[1];
-            const targetElement = document.getElementById(targetId);
+        // Si c'est un lien interne
+        if (lien && lien.includes('#') && (lien.startsWith('#') || lien.startsWith('index.html#'))) {
+            const identifiantCible = lien.split('#')[1];
+            const elementCible = document.getElementById(identifiantCible);
 
-            // Si on est déjà sur index.html ou si c'est une ancre pure
-            if (targetElement) {
-                e.preventDefault();
+            if (elementCible) {
+                evenement.preventDefault();
 
-                // Désactiver temporairement le scroll listener pour éviter les rebonds
-                window.removeEventListener('scroll', updateNav);
+                // Désactiver temporairement l'écouteur de défilement
+                window.removeEventListener('scroll', mettreAJourNavigation);
 
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: elementCible.offsetTop - 80,
                     behavior: 'smooth'
                 });
 
                 // Mettre à jour manuellement le lien actif
-                document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
-                const activeLink = Array.from(document.querySelectorAll('.nav-links a')).find(link => link.getAttribute('href').includes(`#${targetId}`));
-                if (activeLink) activeLink.classList.add('active');
+                document.querySelectorAll('.liens-navigation a').forEach(l => l.classList.remove('actif'));
+                const lienActif = Array.from(document.querySelectorAll('.liens-navigation a')).find(l => l.getAttribute('href').includes(`#${identifiantCible}`));
+                if (lienActif) lienActif.classList.add('actif');
 
-                // Réactiver le scroll listener après le défilement
+                // Réactiver l'écouteur après le défilement
                 setTimeout(() => {
-                    window.addEventListener('scroll', updateNav);
+                    window.addEventListener('scroll', mettreAJourNavigation);
                 }, 800);
             }
         }
     });
 });
 
-// Fonction pour mettre à jour la navigation lors du scroll
-function updateNav() {
-    const navbar = document.querySelector('.navbar');
+// Fonction pour mettre à jour la navigation pendant le défilement
+function mettreAJourNavigation() {
+    const barreNav = document.querySelector('.barre-navigation');
     const sections = document.querySelectorAll('section, main');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const liensNav = document.querySelectorAll('.liens-navigation a');
 
-    let current = '';
+    let sectionActuelle = '';
 
-    // Détection de la section actuelle avec une marge
+    // Détection de la section visible
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 120) {
-            current = section.getAttribute('id');
+        const hautSection = section.offsetTop;
+        if (pageYOffset >= hautSection - 120) {
+            sectionActuelle = section.getAttribute('id');
         }
     });
 
-    // Cas spécial pour le bas de page
+    // Cas du bas de page
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
-        const lastSection = sections[sections.length - 1];
-        if (lastSection) current = lastSection.getAttribute('id');
+        const derniereSection = sections[sections.length - 1];
+        if (derniereSection) sectionActuelle = derniereSection.getAttribute('id');
     }
 
-    if (current) {
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(`#${current}`)) {
-                link.classList.add('active');
+    if (sectionActuelle) {
+        liensNav.forEach(lien => {
+            lien.classList.remove('actif');
+            if (lien.getAttribute('href').includes(`#${sectionActuelle}`)) {
+                lien.classList.add('actif');
             }
         });
     }
 
-    // Style de la navbar au scroll
+    // Style de la barre au défilement
     if (window.scrollY > 50) {
-        navbar.style.padding = '1rem 8%';
-        navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.05)';
+        barreNav.style.padding = '1rem 8%';
+        barreNav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.05)';
     } else {
-        navbar.style.padding = '2rem 8%';
-        navbar.style.boxShadow = 'none';
+        barreNav.style.padding = '2rem 8%';
+        barreNav.style.boxShadow = 'none';
     }
 }
 
-// Activer le listener de scroll seulement sur la page d'accueil
+// Activer le défilement sur l'accueil
 if (window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('portfolio/')) {
-    window.addEventListener('scroll', updateNav);
+    window.addEventListener('scroll', mettreAJourNavigation);
 }
 
-// Gestion du backend (Formulaire de contact)
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const status = document.getElementById('formStatus');
-        const email = document.getElementById('email').value;
-        const button = contactForm.querySelector('button');
+// Gestion du Formulaire de Contact
+const formulaireContact = document.getElementById('formulaireContact');
+if (formulaireContact) {
+    formulaireContact.addEventListener('submit', async (evenement) => {
+        evenement.preventDefault();
+        const statut = document.getElementById('statutFormulaire');
+        const email = document.getElementById('entree-email').value;
+        const bouton = formulaireContact.querySelector('button');
 
-        status.textContent = "Envoi en cours...";
-        status.style.color = "var(--primary-color)";
-        button.disabled = true;
+        statut.textContent = "Envoi en cours...";
+        statut.style.color = "var(--couleur-primaire)";
+        bouton.disabled = true;
 
         try {
-            const response = await fetch('http://localhost:3000/api/contact', {
+            const reponse = await fetch('http://localhost:3000/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -104,18 +103,58 @@ if (contactForm) {
                 body: JSON.stringify({ email: email })
             });
 
-            if (response.ok) {
-                status.textContent = "Message envoyé avec succès ! Merci.";
-                status.style.color = "green";
-                contactForm.reset();
+            if (reponse.ok) {
+                statut.textContent = "Message envoyé avec succès ! Merci.";
+                statut.style.color = "green";
+                formulaireContact.reset();
             } else {
-                throw new Error('Erreur serveur');
+                throw new Error('Erreur');
             }
-        } catch (error) {
-            status.textContent = "Simulation d'envoi réussie ! (Serveur off)";
-            status.style.color = "#F59E0B";
+        } catch (erreur) {
+            statut.textContent = "Simulation d'envoi réussie ! (Serveur hors ligne)";
+            statut.style.color = "#F59E0B";
         } finally {
-            button.disabled = false;
+            bouton.disabled = false;
+        }
+    });
+}
+
+// Gestion de la Fenêtre Surgissante (Popup) des Certifications
+const fenetreModal = document.getElementById('fenetreCertif');
+const elementsCertif = document.querySelectorAll('.element-certif');
+const boutonFermer = document.querySelector('.fermer-modal');
+
+if (fenetreModal && elementsCertif && boutonFermer) {
+    elementsCertif.forEach(element => {
+        element.addEventListener('click', () => {
+            const titre = element.getAttribute('data-titre');
+            const description = element.getAttribute('data-description');
+            const image = element.getAttribute('data-image');
+
+            document.getElementById('titreModal').textContent = titre;
+            document.getElementById('descriptionModal').textContent = description;
+            document.getElementById('imageModal').src = image;
+
+            fenetreModal.style.display = 'block';
+            setTimeout(() => {
+                fenetreModal.classList.add('visible');
+            }, 10);
+        });
+    });
+
+    boutonFermer.addEventListener('click', () => {
+        fenetreModal.classList.remove('visible');
+        setTimeout(() => {
+            fenetreModal.style.display = 'none';
+        }, 300);
+    });
+
+    window.addEventListener('click', (evenement) => {
+        if (evenement.target === fenetreModal) {
+            fenetreModal.classList.remove('visible');
+            setTimeout(() => {
+                fenetreModal.style.display = 'none';
+            }, 300);
         }
     });
 }
