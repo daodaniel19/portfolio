@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Scientifique des Données - Daniel</title>
+    <meta name="description"
+        content="Portfolio de Daniel, Scientifique des Données spécialisé en Apprentissage Automatique, Deep Learning et Power BI.">
+    <title>Daniel | Data Scientist Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,28 +15,28 @@
 </head>
 
 <body>
-    <nav class="barre-navigation">
-        <div class="logo">Daniel<span class="accent">.</span></div>
-        <div class="menu-mobile" id="mobile-menu">
-            <span class="barre"></span>
-            <span class="barre"></span>
-            <span class="barre"></span>
-        </div>
-        <ul class="liens-navigation">
-            <li><a href="#accueil" class="actif">Accueil</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#competences">Compétences</a></li>
-            <li><a href="#portfolio">Projets</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#a-propos">À propos</a></li>
-            <li class="mobile-only"><button class="bouton-contact-mobile" onclick="location.href='#contact'">Parlons-en
-                    !</button></li>
-        </ul>
-        <button class="bouton-contact" onclick="location.href='#contact'">Parlons-en !</button>
-    </nav>
+    <header>
+        <nav class="barre-navigation" aria-label="Navigation principale">
+            <div class="logo">Daniel<span class="accent">.</span></div>
+            <div class="menu-mobile" id="mobile-menu" aria-label="Ouvrir le menu">
+                <span class="barre"></span>
+                <span class="barre"></span>
+                <span class="barre"></span>
+            </div>
+            <ul class="liens-navigation">
+                <li><a href="#accueil" class="actif">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#portfolio">Projets</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#a-propos">À propos</a></li>
+            </ul>
+            <button class="bouton-contact" onclick="location.href='#contact'">Parlons-en !</button>
+        </nav>
+    </header>
 
-    <main id="accueil">
-        <div class="heros">
+    <main>
+        <section id="accueil" class="heros">
             <div class="contenu-heros">
                 <span class="salutation">SALUT ! Je suis <span class="nom">Daniel</span>,</span>
                 <h1>Scientifique des <span class="mise-en-valeur">Données</span></h1>
@@ -44,25 +46,26 @@
 
                 <div class="icones-sociales">
                     <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/daniel-dao-54000919a" title="LinkedIn"><i
+                    <a href="https://www.linkedin.com/in/daniel-dao-54000919a" target="_blank" title="LinkedIn"><i
                             class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.kaggle.com/danieldao19" title="Kaggle"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://www.kaggle.com/danieldao19" target="_blank" title="Kaggle"><i
+                            class="fab fa-kaggle"></i></a>
                 </div>
 
                 <div class="actions-heros">
-                    <a href="cv_daniel.pdf" download="CV_Daniel_Data_Scientist.pdf" class="bouton-cv">Télécharger CV</a>
+                    <a href="assets/docs/cv_daniel.pdf" download="CV_Daniel_Data_Scientist.pdf"
+                        class="bouton-cv">Télécharger CV</a>
                 </div>
             </div>
 
             <div class="conteneur-image-heros">
                 <div class="cercle-fond"></div>
-                <img src="profile.jpg" alt="Scientifique des Données" class="image-profil">
-
+                <img src="assets/images/profile.jpg" alt="Daniel - Data Scientist" class="image-profil">
                 <div class="forme forme-1"></div>
                 <div class="forme forme-2"></div>
                 <div class="forme forme-3"></div>
             </div>
-        </div>
+        </section>
 
         <section id="services" class="section">
             <div class="en-tete-section">
@@ -70,57 +73,54 @@
                 <p>Des solutions de données spécialisées pour vos besoins commerciaux.</p>
             </div>
             <div class="grille-services">
-                <div class="carte-service">
-                    <i class="fas fa-brain"></i>
+                <article class="carte-service">
+                    <i class="fas fa-brain" aria-hidden="true"></i>
                     <h3>Apprentissage Automatique</h3>
-                    <p>Conception et implémentation de modèles d'apprentissage automatique personnalisés pour la
-                        prédiction et la classification.
+                    <p>Conception et implémentation de modèles personnalisés pour la prédiction et la classification.
                     </p>
-                </div>
-                <div class="carte-service">
-                    <i class="fas fa-chart-pie"></i>
+                </article>
+                <article class="carte-service">
+                    <i class="fas fa-chart-pie" aria-hidden="true"></i>
                     <h3>Visualisation de Données</h3>
-                    <p>Création de tableaux de bord interactifs et narration visuelle à partir de jeux de données
-                        complexes.</p>
-                </div>
-                <div class="carte-service">
-                    <i class="fas fa-microchip"></i>
+                    <p>Création de tableaux de bord interactifs et narration visuelle à partir de données complexes.</p>
+                </article>
+                <article class="carte-service">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
                     <h3>Apprentissage Profond</h3>
-                    <p>Utilisation de réseaux de neurones pour la Vision par Ordinateur et le Traitement du Langage
-                        Naturel (NLP).</p>
-                </div>
+                    <p>Utilisation de réseaux de neurones pour la Vision par Ordinateur et le TALN (NLP).</p>
+                </article>
             </div>
         </section>
 
         <section id="portfolio" class="section">
             <div class="en-tete-section">
                 <h2>Projets <span class="accent">Phares</span></h2>
-                <p>Une sélection de mes travaux récents académiques en science des données.</p>
+                <p>Une sélection de mes travaux récents en science des données.</p>
             </div>
             <div class="grille-portfolio">
-                <div class="carte-projet">
+                <article class="carte-projet" id="projet-powerbi">
                     <div class="image-projet">
-                        <img src="project_churn.png" alt="Tableau de bord Power BI"
-                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="assets/images/project_churn.png" alt="Aperçu Tableau de bord Power BI">
                     </div>
                     <div class="info-projet">
                         <h3>Tableau de bord Power BI</h3>
-                        <p>Tableau de bord Power BI pour visualiser les données des clients avec une précision de
-                            92%. Utilisation de Power BI pour l'explicabilité.</p>
-                        <a href="#" class="lien-projet">Voir le Projet <i class="fas fa-external-link-alt"></i></a>
+                        <p>Analyse stratégique e-commerce : optimisation des stocks et impact des promotions.</p>
+                        <button class="lien-projet" onclick="ouvrirProjetPowerBI()"
+                            aria-label="Voir le projet Power BI">
+                            Voir le Projet <i class="fas fa-external-link-alt"></i>
+                        </button>
                     </div>
-                </div>
-                <div class="carte-projet">
+                </article>
+                <article class="carte-projet">
                     <div class="image-projet">
-                        <img src="project_nlp.png" alt="Analyse de Sentiment TALN"
-                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="assets/images/project_nlp.png" alt="Aperçu Projet Deep Learning">
                     </div>
                     <div class="info-projet">
-                        <h3>Deep Learning pour la reconnaissance visuelle</h3>
-                        <p>Reconnaissance visuelle des images de produits à l'aide de modèles convolutifs.</p>
+                        <h3>Deep Learning & Vision</h3>
+                        <p>Reconnaissance visuelle des images de produits à l'aide de modèles CNN.</p>
                         <a href="#" class="lien-projet">Voir le Projet <i class="fas fa-external-link-alt"></i></a>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
@@ -130,35 +130,35 @@
                 <p>Maîtrise des outils et technologies de pointe.</p>
             </div>
             <div class="conteneur-competences">
-                <div class="etiquette-competence">Python</div>
-                <div class="etiquette-competence">SQL</div>
-                <div class="etiquette-competence">Kobo Collect</div>
-                <div class="etiquette-competence">Linux</div>
-                <div class="etiquette-competence">Power BI</div>
-                <div class="etiquette-competence">Pandas</div>
-                <div class="etiquette-competence">Spark</div>
-                <div class="etiquette-competence">Docker</div>
+                <span class="etiquette-competence">Python</span>
+                <span class="etiquette-competence">SQL</span>
+                <span class="etiquette-competence">Power BI</span>
+                <span class="etiquette-competence">Deep Learning</span>
+                <span class="etiquette-competence">Pandas</span>
+                <span class="etiquette-competence">Scikit-learn</span>
+                <span class="etiquette-competence">Spark</span>
+                <span class="etiquette-competence">Docker</span>
             </div>
         </section>
+
         <section id="certifications" class="section">
             <div class="en-tete-section">
                 <h2>Certifications <span class="accent">Professionnelles</span></h2>
-                <p>Validation de mon expertise technique par des institutions de premier plan.</p>
+                <p>Expertise validée par des institutions de premier plan.</p>
             </div>
             <div class="liste-certifs">
-                <div class="element-certif" data-titre="Google Cybersecurity"
-                    data-description="Certification sur l'identification des risques, menaces et vulnérabilités courants, ainsi que les techniques permettant de les atténuer. Protéger les réseaux, les appareils, les personnes et les données contre les accès non autorisés et les cyberattaques à l'aide d'outils de gestion des informations et des événements de sécurité (SIEM). Acquérir une expérience pratique avec Python, Linux et SQL."
+                <button class="element-certif" data-titre="Google Cybersecurity"
+                    data-description="Identification des risques et menaces cyber. Protection des réseaux et données. Pratique avec Python, Linux et SQL."
                     data-image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
                     data-lien="https://coursera.org/share/e45e71ded56dd78f386b518044003072">
                     <div class="icone-certif"><i class="fab fa-google"></i></div>
                     <div class="info-certif">
-                        <h3>Google Cybersécurité Certificat Professionnel</h3>
+                        <h3>Google Cybersécurité</h3>
                         <span>Google Coursera • 2025</span>
                     </div>
-                </div>
-
-                <div class="element-certif" data-titre="Google Data Analytics"
-                    data-description="Certification Compétences analytiques clés (nettoyage, analyse et visualisation des données) et les outils (feuilles de calcul, SQL, programmation R, Tableau). Compréhension de comment nettoyer et organiser les données pour l'analyse, et effectuer des analyses et des calculs à l'aide de feuilles de calcul, de SQL et de la programmation R. Visualiser et présenter les résultats des données dans des tableaux de bord, des présentations et des plates-formes de visualisation couramment utilisées."
+                </button>
+                <button class="element-certif" data-titre="Google Data Analytics"
+                    data-description="Nettoyage et analyse de données avec SQL, R et Tableau. Visualisation stratégique et reporting."
                     data-image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
                     data-lien="https://coursera.org/share/0591b7b064abece090460712a69f7e4e">
                     <div class="icone-certif"><i class="fab fa-google"></i></div>
@@ -166,27 +166,7 @@
                         <h3>Google Data Analytics</h3>
                         <span>Google Coursera • 2025</span>
                     </div>
-                </div>
-                <div class="element-certif" data-titre="Google IT Support"
-                    data-description="Certification avancée démontrant la capacité à effectuer des tâches quotidiennes d'assistance informatique, y compris l'assemblage d'ordinateurs, la mise en réseau sans fil, l'installation de programmes et le service à la clientèle. A fournir une assistance à la clientèle de bout en bout, depuis l'identification des problèmes jusqu'au dépannage et au débogage. Utilisation de Linux, les systèmes de noms de domaine, l'interface de ligne de commande et le code binaire."
-                    data-image="https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=800"
-                    data-lien="https://coursera.org/share/2302be614c2959f18e77a7eb171dffcd">
-                    <div class="icone-certif"><i class="fab fa-aws"></i></div>
-                    <div class="info-certif">
-                        <h3>Certifié Google en Assistance Informatique</h3>
-                        <span>Google Coursera • 2025</span>
-                    </div>
-                </div>
-                <div class="element-certif" data-titre="Python for Data Science, AI & Development"
-                    data-description="Série de cours couvrant les fondements de l'apprentissage profond, de la construction de réseaux de neurones à l'implémentation de modèles complexes."
-                    data-image="https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=800"
-                    data-lien="https://www.coursera.org/specializations/deep-learning">
-                    <div class="icone-certif"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="info-certif">
-                        <h3>Python pour la science des données, l'IA et le développement</h3>
-                        <span>Coursera (IBM) • 2025</span>
-                    </div>
-                </div>
+                </button>
             </div>
         </section>
 
@@ -194,54 +174,78 @@
             <div class="conteneur-a-propos">
                 <div class="texte-a-propos">
                     <h2>À mon <span class="accent">sujet</span></h2>
-                    <p>Je suis un Scientifique des Données passionné par la transformation de données brutes en insights
-                        stratégiques. Fort de mes certifications chez Google et IBM, je combine rigueur analytique et
-                        créativité technologique pour résoudre des problèmes complexes et optimiser les prises de
-                        décision en entreprise.</p>
+                    <p>Scientifique des Données passionné par la transformation de données brutes en insights
+                        stratégiques. Combinant rigueur analytique et vision business pour résoudre des problèmes
+                        complexes.</p>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section section-contact">
+        <section id="contact" class="section">
             <div class="carte-contact">
                 <h2>Me <span class="accent">Contacter</span></h2>
-                <p>Vous avez un projet ou une question ? Parlons-en.</p>
+                <p>Un projet ? Une question ? Discutons-en ensemble.</p>
                 <div class="infos-contact">
                     <a href="mailto:daodaniel14@gmail.com" class="lien-contact">
-                        <i class="fas fa-envelope"></i>
-                        daodaniel14@gmail.com
+                        <i class="fas fa-envelope"></i> daodaniel14@gmail.com
                     </a>
                     <a href="tel:+22376665276" class="lien-contact">
-                        <i class="fas fa-phone-alt"></i>
-                        +223 76 66 52 76
+                        <i class="fas fa-phone-alt"></i> +223 76 66 52 76
                     </a>
                 </div>
             </div>
         </section>
-
-        <footer class="pied-de-page">
-            <p>&copy; 2026 Tous droits réservés.</p>
-            <div class="reseaux-sociaux-pied">
-                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/daniel-dao-54000919a" title="LinkedIn"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.kaggle.com/danieldao19" title="Kaggle"><i class="fab fa-kaggle"></i></a>
-            </div>
-        </footer>
     </main>
 
-    <!-- Structure de la Fenêtre Surgissante (Popup) pour les certificats -->
-    <div id="fenetreCertif" class="modal">
+    <footer class="pied-de-page">
+        <p>&copy; 2026 Daniel. Tous droits réservés.</p>
+        <div class="reseaux-sociaux-pied">
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/daniel-dao-54000919a" target="_blank" aria-label="LinkedIn"><i
+                    class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.kaggle.com/danieldao19" target="_blank" aria-label="Kaggle"><i
+                    class="fab fa-kaggle"></i></a>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="fenetreCertif" class="modal" role="dialog" aria-modal="true" aria-labelledby="titreModal">
         <div class="contenu-modal">
-            <span class="fermer-modal">&times;</span>
+            <button class="fermer-modal" aria-label="Fermer la fenêtre">&times;</button>
             <div class="corps-modal">
-                <img id="imageModal" src="" alt="Aperçu du certificat">
+                <img id="imageModal" src="" alt="Aperçu certificat">
                 <div class="info-modal">
                     <h3 id="titreModal"></h3>
                     <p id="descriptionModal"></p>
-                    <a id="lienModal" href="#" target="_blank" class="bouton-cv"
-                        style="display: inline-block; margin-top: 1.5rem; text-decoration: none; padding: 0.6rem 1.2rem; font-size: 0.9rem;">Voir
-                        le certificat</a>
+                    <a id="lienModal" href="#" target="_blank" class="bouton-cv">Voir le certificat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalProjet" class="modal modal-projet" role="dialog" aria-modal="true" aria-labelledby="titreProjetModal">
+        <div class="contenu-modal contenu-modal-large">
+            <button class="fermer-modal fermer-projet" aria-label="Fermer le projet">&times;</button>
+            <div class="corps-modal-projet">
+                <div class="en-tete-projet-modal">
+                    <h2 id="titreProjetModal"></h2>
+                    <div class="tags-projet" id="tagsProjet"></div>
+                </div>
+                <div class="details-projet-modal">
+                    <div class="galerie-projet">
+                        <div class="slider-conteneur">
+                            <div class="slider-images" id="sliderImages"></div>
+                        </div>
+                        <div class="indicateurs-slider" id="indicateursSlider"></div>
+                    </div>
+                    <div class="info-projet-modal">
+                        <p id="descriptionProjetModal"></p>
+                        <div class="actions-projet">
+                            <a id="lienRapport" href="#" target="_blank" class="bouton-cv">
+                                <i class="fas fa-file-alt"></i> Voir le Rapport Full PDF
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

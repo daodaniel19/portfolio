@@ -1,38 +1,57 @@
-// --- Fonctions d'Initialisation ---
+const CONFIG = {
+    assets: {
+        images: 'assets/images/',
+        docs: 'assets/docs/',
+        projets: 'assets/projets/powerbi/'
+    },
+    powerbi: {
+        images: [
+            'cover.png',
+            'dashboard_1.png',
+            'dashboard_2.png',
+            'dashboard_3.png',
+            'dashboard_4.png',
+            'dashboard_5.png'
+        ],
+        reportPdf: 'assets/docs/rapport_powerbi_daniel.pdf'
+    }
+};
+
+// --- State Management ---
+let state = {
+    sliderIndex: 0,
+    sliderImages: []
+};
+
+// --- Initialization ---
+document.addEventListener('DOMContentLoaded', () => {
+    initNavigation();
+    initCertificatesModal();
+    initProjectsModal();
+    initMobileMenu();
+
+    // Initial scroll check
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+});
+
+// --- Core Functions ---
 
 /**
- * Initialise le défilement fluide pour les liens de navigation.
+ * Handles smooth scrolling and navigation link updates
  */
-function initialiserDefilementFluide() {
-    document.querySelectorAll('.liens-navigation a, .bouton-contact').forEach(ancre => {
-        ancre.addEventListener('click', function (evenement) {
-            const lien = this.getAttribute('href');
-
-            // Si c'est un lien interne
-            if (lien && lien.includes('#') && (lien.startsWith('#') || lien.startsWith('index.html#'))) {
-                const identifiantCible = lien.split('#')[1];
-                const elementCible = document.getElementById(identifiantCible);
-
-                if (elementCible) {
-                    evenement.preventDefault();
-
-                    // Désactiver temporairement l'écouteur de défilement pour éviter les conflits visuels
-                    window.removeEventListener('scroll', mettreAJourNavigation);
-
+function initNavigation() {
+    document.querySelectorAll('.liens-navigation a, .bouton-contact').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
                     window.scrollTo({
-                        top: elementCible.offsetTop - 80,
+                        top: target.offsetTop - 80,
                         behavior: 'smooth'
                     });
-
-                    // Mettre à jour manuellement le lien actif
-                    document.querySelectorAll('.liens-navigation a').forEach(l => l.classList.remove('actif'));
-                    const lienActif = Array.from(document.querySelectorAll('.liens-navigation a')).find(l => l.getAttribute('href').includes(`#${identifiantCible}`));
-                    if (lienActif) lienActif.classList.add('actif');
-
-                    // Réactiver l'écouteur après le défilement
-                    setTimeout(() => {
-                        window.addEventListener('scroll', mettreAJourNavigation);
-                    }, 800);
                 }
             }
         });
@@ -40,141 +59,150 @@ function initialiserDefilementFluide() {
 }
 
 /**
- * Met à jour l'apparence de la navigation et le lien actif selon la position de défilement.
+ * Updates navigation bar style and active link on scroll
  */
-function mettreAJourNavigation() {
-    const barreNav = document.querySelector('.barre-navigation');
-    const sections = document.querySelectorAll('section, main');
-    const liensNav = document.querySelectorAll('.liens-navigation a');
+function handleScroll() {
+    const header = document.querySelector('.barre-navigation');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.liens-navigation a');
 
-    let sectionActuelle = '';
-
-    // Détection de la section visible
-    sections.forEach(section => {
-        const hautSection = section.offsetTop;
-        if (window.pageYOffset >= hautSection - 120) {
-            sectionActuelle = section.getAttribute('id');
-        }
-    });
-
-    // Cas spécifique du bas de page
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
-        const derniereSection = sections[sections.length - 1];
-        if (derniereSection) sectionActuelle = derniereSection.getAttribute('id');
-    }
-
-    if (sectionActuelle) {
-        liensNav.forEach(lien => {
-            lien.classList.remove('actif');
-            if (lien.getAttribute('href').includes(`#${sectionActuelle}`)) {
-                lien.classList.add('actif');
-            }
-        });
-    }
-
-    // Effet visuel sur la barre de navigation
+    // Header appearance
     if (window.scrollY > 50) {
-        barreNav.style.padding = '1rem 10%';
-        barreNav.style.background = 'rgba(255, 255, 255, 0.95)';
-        barreNav.style.boxShadow = 'var(--ombre-douce)';
+        header.classList.add('scrolled');
     } else {
-        barreNav.style.padding = '1.5rem 10%';
-        barreNav.style.background = 'rgba(255, 255, 255, 0.8)';
-        barreNav.style.boxShadow = 'none';
+        header.classList.remove('scrolled');
     }
+
+    // Active link update
+    let currentId = '';
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 150) {
+            currentId = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.toggle('actif', link.getAttribute('href') === `#${currentId}`);
+    });
 }
 
 /**
- * Initialise la gestion de la fenêtre surgissante (modal) pour les certifications.
+ * Handles certificates modal logic
  */
-function initialiserModalCertifications() {
-    const fenetreModal = document.getElementById('fenetreCertif');
-    const elementsCertif = document.querySelectorAll('.element-certif');
-    const boutonFermer = document.querySelector('.fermer-modal');
+function initCertificatesModal() {
+    const modal = document.getElementById('fenetreCertif');
+    const triggers = document.querySelectorAll('.element-certif');
+    const closeBtn = modal.querySelector('.fermer-modal');
 
-    if (!fenetreModal || !elementsCertif.length || !boutonFermer) return;
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            document.getElementById('titreModal').textContent = trigger.dataset.titre;
+            document.getElementById('descriptionModal').textContent = trigger.dataset.description;
+            document.getElementById('imageModal').src = trigger.dataset.image;
+            document.getElementById('lienModal').href = trigger.dataset.lien;
 
-    elementsCertif.forEach(element => {
-        element.addEventListener('click', () => {
-            const titre = element.getAttribute('data-titre');
-            const description = element.getAttribute('data-description');
-            const image = element.getAttribute('data-image');
-            const lien = element.getAttribute('data-lien');
-
-            document.getElementById('titreModal').textContent = titre;
-            document.getElementById('descriptionModal').textContent = description;
-            document.getElementById('imageModal').src = image;
-
-            const boutonLien = document.getElementById('lienModal');
-            if (lien) {
-                boutonLien.href = lien;
-                boutonLien.style.display = 'inline-block';
-            } else {
-                boutonLien.style.display = 'none';
-            }
-
-            fenetreModal.style.display = 'block';
-            setTimeout(() => {
-                fenetreModal.classList.add('visible');
-            }, 10);
+            openModal(modal);
         });
     });
 
-    const fermerModal = () => {
-        fenetreModal.classList.remove('visible');
-        setTimeout(() => {
-            fenetreModal.style.display = 'none';
-        }, 300);
-    };
-
-    boutonFermer.addEventListener('click', fermerModal);
-
-    window.addEventListener('click', (evenement) => {
-        if (evenement.target === fenetreModal) {
-            fermerModal();
-        }
-    });
+    closeBtn.addEventListener('click', () => closeModal(modal));
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); });
 }
 
 /**
- * Initialise le menu mobile (hamburger).
+ * Handles projects modal logic (Power BI gallery)
  */
-function initialiserMenuMobile() {
-    const boutonMobile = document.getElementById('mobile-menu');
-    const liensNavigation = document.querySelector('.liens-navigation');
-    const liens = document.querySelectorAll('.liens-navigation a');
+function initProjectsModal() {
+    const modal = document.getElementById('modalProjet');
+    const closeBtn = modal.querySelector('.fermer-projet');
 
-    if (!boutonMobile || !liensNavigation) return;
+    closeBtn.addEventListener('click', () => closeModal(modal));
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); });
+}
 
-    boutonMobile.addEventListener('click', () => {
-        boutonMobile.classList.toggle('actif');
-        liensNavigation.classList.toggle('actif');
-        // Empêcher le défilement du corps quand le menu est ouvert
-        document.body.style.overflow = liensNavigation.classList.contains('actif') ? 'hidden' : 'auto';
+/**
+ * Dynamic initialization of Power BI project details
+ */
+window.ouvrirProjetPowerBI = function () {
+    const modal = document.getElementById('modalProjet');
+    const titre = "Tableau de bord Power BI - Analyse Stratégique";
+    const description = `Ce projet Power BI a été conçu pour analyser les ventes, le comportement des clients, et l'impact des promotions.
+    
+    L'objectif est de fournir des visualisations et KPI stratégiques pour améliorer la rentabilité et l'expérience client.
+    
+    Consultez les 5 volets majeurs dans la galerie ou téléchargez le rapport complet.`;
+
+    state.sliderImages = CONFIG.powerbi.images.map(img => `${CONFIG.assets.projets}${img}`);
+    state.sliderIndex = 0;
+
+    document.getElementById('titreProjetModal').textContent = titre;
+    document.getElementById('descriptionProjetModal').innerText = description;
+    document.getElementById('lienRapport').href = CONFIG.powerbi.reportPdf;
+    document.getElementById('tagsProjet').innerHTML = `
+        <span class="tag">Power BI</span>
+        <span class="tag">Data Analysis</span>
+        <span class="tag">Business Intelligence</span>
+    `;
+
+    updateSlider();
+    openModal(modal);
+};
+
+/**
+ * Slider Logic
+ */
+window.goToSlide = function (index) {
+    state.sliderIndex = index;
+    updateSlider();
+};
+
+function updateSlider() {
+    const slider = document.getElementById('sliderImages');
+    const indicators = document.getElementById('indicateursSlider');
+
+    slider.innerHTML = state.sliderImages.map(img => `<img src="${img}" alt="Slide">`).join('');
+    slider.style.transform = `translateX(-${state.sliderIndex * 100}%)`;
+
+    indicators.innerHTML = state.sliderImages.map((_, i) => `
+        <span class="point ${i === state.sliderIndex ? 'actif' : ''}" onclick="goToSlide(${i})"></span>
+    `).join('');
+}
+
+/**
+ * Modal helpers
+ */
+function openModal(modal) {
+    modal.style.display = 'flex';
+    setTimeout(() => modal.classList.add('visible'), 10);
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modal) {
+    modal.classList.remove('visible');
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }, 300);
+}
+
+/**
+ * Mobile Menu Toggle
+ */
+function initMobileMenu() {
+    const menuBtn = document.getElementById('mobile-menu');
+    const navUl = document.querySelector('.liens-navigation');
+
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('actif');
+        navUl.classList.toggle('actif');
+        document.body.style.overflow = navUl.classList.contains('actif') ? 'hidden' : 'auto';
     });
 
-    liens.forEach(lien => {
-        lien.addEventListener('click', () => {
-            boutonMobile.classList.remove('actif');
-            liensNavigation.classList.remove('actif');
+    navUl.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuBtn.classList.remove('actif');
+            navUl.classList.remove('actif');
             document.body.style.overflow = 'auto';
         });
     });
 }
-
-// --- Exécution après chargement du DOM ---
-
-document.addEventListener('DOMContentLoaded', () => {
-    initialiserDefilementFluide();
-    initialiserModalCertifications();
-    initialiserMenuMobile();
-
-    // Activer l'écouteur de défilement immédiatement si on est sur la page principale
-    if (window.location.pathname.includes('index.html') ||
-        window.location.pathname === '/' ||
-        window.location.pathname.endsWith('portfolio/')) {
-        window.addEventListener('scroll', mettreAJourNavigation);
-        // Appel initial pour régler l'état correct de la barre
-        mettreAJourNavigation();
-    }
-});
